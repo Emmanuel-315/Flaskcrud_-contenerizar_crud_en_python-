@@ -13,6 +13,11 @@ RUN apt-get update \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
  
-COPY . .
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ .
+
+EXPOSE 8080
  
 CMD ["python", "app/main.py"]
